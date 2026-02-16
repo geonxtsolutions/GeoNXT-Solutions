@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GeoNXT Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="GeoNXT Solutions Logo_2.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: linear-gradient(135deg, #0a1128 0%, #0f1a3a 100%); color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; }
+        .tech-gradient { background: linear-gradient(135deg, #001a4d 0%, #003d99 100%); }
+        .hero-bg { background-image: url('https://images.prismic.io/ellipsis-drive/8bddd10f-87ec-4c72-af33-fbb3e317b193_Location+Intelligence.png?auto=compress,format'); background-size: cover; background-position: center; filter: blur(3px); transform: scale(1.05); }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10, 17, 40, 0.92), rgba(0, 26, 77, 0.5)); }
+        .fade-in { animation: fadeIn 0.8s ease-in; }
+        .slide-up { animation: slideUp 0.8s ease-out; }
+        .logo-placeholder { 
+                width: 56px; 
+                height: 56px; 
+                background: linear-gradient(135deg, #001a4d 0%, #003d99 100%); 
+                border-radius: 8px; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                padding: 0; 
+                overflow: hidden; 
+            }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .glow-blue { box-shadow: 0 0 20px rgba(0, 61, 153, 0.4); }
+        .glow-blue:hover { box-shadow: 0 0 30px rgba(0, 61, 153, 0.6); }
+        .tech-card { background: linear-gradient(135deg, rgba(15, 29, 66, 0.85), rgba(10, 17, 40, 0.95)); border: 1px solid rgba(107, 114, 128, 0.3); backdrop-filter: blur(10px); transition: all 0.3s ease; }
+        .tech-card:hover { border-color: rgba(0, 61, 153, 0.7); box-shadow: 0 0 20px rgba(0, 61, 153, 0.3); }
+        nav { background: linear-gradient(135deg, rgba(10, 17, 40, 0.97), rgba(15, 29, 66, 0.97)); border-bottom: 2px solid rgba(0, 61, 153, 0.3); backdrop-filter: blur(10px); }
+        input, textarea, select { background: rgba(15, 29, 66, 0.6) !important; border: 1px solid rgba(0, 61, 153, 0.3) !important; color: #fff !important; }
+        input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.5) !important; }
+        input:focus, textarea:focus, select:focus { border-color: rgba(0, 61, 153, 0.8) !important; outline: none !important; box-shadow: 0 0 10px rgba(0, 61, 153, 0.3) !important; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <div class="logo-placeholder">
+                        <img src="GeoNXT Solutions Logo_2.png" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <a href="index.html" class="text-2xl font-bold text-gray-300">GeoNXT Solutions</a>
+                </div>
+                <div class="hidden md:flex space-x-1">
+                    <a href="index.html" class="hover:text-blue-300 text-gray-300 px-3 py-2 text-sm font-medium transition">Home</a>
+                    <a href="about.html" class="hover:text-blue-300 text-gray-300 px-3 py-2 text-sm font-medium transition">About</a>
+                    <a href="solutions.html" class="hover:text-blue-300 text-gray-300 px-3 py-2 text-sm font-medium transition">Solutions</a>
+                    <a href="contact.html" class="hover:text-blue-300 text-gray-300 px-3 py-2 text-sm font-medium transition">Contact</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-blue-300">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-slate-950 to-slate-900 border-t border-blue-600/30">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 text-base font-medium">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 text-base font-medium">About</a>
+                <a href="solutions.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 text-base font-medium">Solutions</a>
+                <a href="contact.html" class="text-gray-300 hover:text-blue-300 block px-3 py-2 text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <div class="absolute inset-0 hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in py-20">
+            <h1 class="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+                <span class="bg-gradient-to-r from-blue-500 via-gray-300 to-blue-500 bg-clip-text text-transparent">We Change Things. Get In Touch</span>
+            </h1>
+            <p class="text-xl md:text-2xl max-w-4xl mx-auto text-gray-300">We're here to help transform your operations</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div class="tech-card p-8 rounded-xl glow-blue">
+                    <h2 class="text-3xl font-bold mb-8">Send us a Message</h2>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Full Name</label>
+                            <input type="text" placeholder="Your name" class="w-full px-4 py-3 rounded-lg transition" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email Address</label>
+                            <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 rounded-lg transition" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Company</label>
+                            <input type="text" placeholder="Your company" class="w-full px-4 py-3 rounded-lg transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Service Interest</label>
+                            <select class="w-full px-4 py-3 rounded-lg transition">
+                                <option value="">Select a service</option>
+                                <option value="gis">GeoINT Platform</option>
+                                <option value="erp">ERP Suite</option>
+                                <option value="mobile">Cloud-Native Apps</option>
+                                <option value="custom">Custom Solution</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message</label>
+                            <textarea rows="5" placeholder="Tell us about your project..." class="w-full px-4 py-3 rounded-lg transition resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="tech-gradient text-white w-full py-3 rounded-lg font-semibold transition glow-blue hover:shadow-2xl">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <!-- Location -->
+                    <div class="tech-card p-8 rounded-xl">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-gray-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Office Location</h3>
+                                <p class="text-gray-400">Nairobi, Kenya</p>
+                                <p class="text-gray-400">East Africa</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="tech-card p-8 rounded-xl">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-gray-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Email</h3>
+                                <p class="text-gray-400"><a href="mailto:info@geonxt.com" class="text-blue-400 hover:text-gray-300 transition">info@geonxt.com</a></p>
+                                <p class="text-gray-400"><a href="mailto:sales@geonxt.com" class="text-blue-400 hover:text-gray-300 transition">sales@geonxt.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="tech-card p-8 rounded-xl">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-gray-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Support</h3>
+                                <p class="text-gray-400">24/7 Technical Support</p>
+                                <p class="text-gray-400"><a href="tel:+254700000000" class="text-blue-400 hover:text-gray-300 transition">+254 (0) 700 000 000</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Response Time -->
+                    <div class="tech-card p-8 rounded-xl">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-gray-400 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Response Time</h3>
+                                <p class="text-gray-400">We respond to inquiries within 24 hours</p>
+                                <p class="text-gray-400">Monday - Friday: 8am - 5pm EAT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-32 border-t border-blue-600/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-16 text-center">Why Choose GeoNXT</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="tech-card p-8 rounded-xl text-center">
+                    <div class="text-4xl font-bold text-blue-400 mb-4">3+</div>
+                    <p class="text-white font-semibold mb-2">Projects Delivered</p>
+                    <p class="text-gray-400 text-sm">Successfully completed across Africa</p>
+                </div>
+                <div class="tech-card p-8 rounded-xl text-center">
+                    <div class="text-4xl font-bold text-blue-400 mb-4">99.9%</div>
+                    <p class="text-white font-semibold mb-2">Uptime SLA</p>
+                    <p class="text-gray-400 text-sm">Enterprise-grade reliability guaranteed</p>
+                </div>
+                <div class="tech-card p-8 rounded-xl text-center">
+                    <div class="text-4xl font-bold text-blue-400 mb-4">10+</div>
+                    <p class="text-white font-semibold mb-2">Industry Sectors</p>
+                    <p class="text-gray-400 text-sm">Serving diverse markets with tailored solutions</p>
+                </div>
+                <div class="tech-card p-8 rounded-xl text-center">
+                    <div class="text-4xl font-bold text-blue-400 mb-4">24/7</div>
+                    <p class="text-white font-semibold mb-2">Expert Support</p>
+                    <p class="text-gray-400 text-sm">Dedicated team always ready to help</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-32">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-16 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="tech-card p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold text-blue-400 mb-3">How long does implementation typically take?</h3>
+                    <p class="text-gray-400">Implementation timelines vary based on project scope and complexity. Most implementations range from 3-6 months, though we can expedite timelines for smaller deployments.</p>
+                </div>
+                <div class="tech-card p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold text-blue-400 mb-3">Do you offer training and support?</h3>
+                    <p class="text-gray-400">Yes. We provide comprehensive training, documentation, and 24/7 support. Your team will be fully equipped to manage and optimize the system.</p>
+                </div>
+                <div class="tech-card p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold text-blue-400 mb-3">Can your solutions integrate with existing systems?</h3>
+                    <p class="text-gray-400">Absolutely. Our platforms are designed for seamless integration with existing enterprise systems through APIs and custom connectors.</p>
+                </div>
+                <div class="tech-card p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold text-blue-400 mb-3">What about data security and compliance?</h3>
+                    <p class="text-gray-400">We implement enterprise-grade security, encryption, and compliance measures. Our systems meet international standards for data protection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-32 border-t border-blue-600/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Operations?</h2>
+            <p class="text-xl text-gray-400 mb-8">Schedule a personalized demo with our team</p>
+            <a href="#" class="tech-gradient text-white px-10 py-4 rounded-lg font-semibold transition glow-blue hover:shadow-2xl inline-block">Schedule Demo Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-blue-600/30 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Branding -->
+                <div>
+                    <div class="logo-placeholder mb-4">
+                        <img src="GeoNXT Solutions Logo_2.png" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Enterprise geospatial solutions engineered for scale and designed for impact.</p>
+                </div>
+
+                <!-- Solutions -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-6 text-white">Solutions</h4>
+                    <ul class="space-y-3">
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-blue-400 transition">Intelligence Platform</a></li>
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-blue-400 transition">ERP Integration</a></li>
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-blue-400 transition">AI Insights</a></li>
+                        <li><a href="solutions.html" class="text-gray-400 hover:text-blue-400 transition">Mobile Apps</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-6 text-white">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-gray-400 hover:text-blue-400 transition">About Us</a></li>
+                        <li><a href="team.html" class="text-gray-400 hover:text-blue-400 transition">Our Team</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-blue-400 transition">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-6 text-white">Get in Touch</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span class="text-gray-400">Nairobi, Kenya</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            <a href="mailto:info@geonxt.com" class="text-gray-400 hover:text-blue-400 transition">info@geonxt.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-blue-600/30 py-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-500 text-sm">
+                        &copy; 2026 GeoNXT Solutions Ltd. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
+    </script>
+</body>
+</html>
